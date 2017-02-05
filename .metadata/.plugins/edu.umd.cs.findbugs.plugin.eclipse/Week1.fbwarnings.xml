@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="7" timestamp="1485538042877" analysisTimestamp="1485538042535" release="">
+  <Project projectName="Week1">
+    <Jar>C:\Users\qwe95\Google Drive\&#22823;&#22235;&#19979;\Algorithm_Coursera\Week 1\Percolation.class</Jar>
+    <AuxClasspathEntry>C:\Users\qwe95\Google Drive\&#22823;&#22235;&#19979;\Algorithm_Coursera\Week 1</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\qwe95\Google Drive\&#22823;&#22235;&#19979;\Algorithm_Coursera\Week 1\algs4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_121\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\qwe95\Google Drive\&#22823;&#22235;&#19979;\Algorithm_Coursera\Week 1</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="3">
+    <Class classname="Percolation">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Class>
+    <Field classname="Percolation" name="count" signature="I" isStatic="false">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="3">
+    <Class classname="Percolation">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Class>
+    <Field classname="Percolation" name="grid" signature="LWeightedQuickUnionUF;" isStatic="false">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="3">
+    <Class classname="Percolation">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Class>
+    <Field classname="Percolation" name="gridState" signature="[[I" isStatic="false">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="3">
+    <Class classname="Percolation">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Class>
+    <Field classname="Percolation" name="n" signature="I" isStatic="false">
+      <SourceLine classname="Percolation" sourcefile="Percolation.java" sourcepath="Percolation.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="PercolationStats">
+      <SourceLine classname="PercolationStats" sourcefile="PercolationStats.java" sourcepath="PercolationStats.java"/>
+    </Class>
+    <Field classname="PercolationStats" name="data" signature="[D" isStatic="false">
+      <SourceLine classname="PercolationStats" sourcefile="PercolationStats.java" sourcepath="PercolationStats.java"/>
+    </Field>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sat, 28 Jan 2017 01:25:46 +0800" total_classes="1" referenced_classes="11" total_bugs="5" total_size="19" num_packages="1" java_version="1.8.0_121" vm_version="25.121-b13" cpu_seconds="1.14" clock_seconds="0.34" peak_mbytes="465.02" alloc_mbytes="1024.00" gc_seconds="0.02" priority_2="5">
+    <PackageStats package="" total_bugs="5" total_types="2" total_size="19" priority_2="5">
+      <ClassStats class="Percolation" sourceFile="Percolation.java" interface="false" size="19" bugs="4" priority_2="4"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="93" invocations="2" avgMicrosecondsPerInvocation="46826" maxMicrosecondsPerInvocation="81726" standardDeviationMircosecondsPerInvocation="34900"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="86" invocations="302" avgMicrosecondsPerInvocation="287" maxMicrosecondsPerInvocation="3949" standardDeviationMircosecondsPerInvocation="522"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="30" invocations="302" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="1495" standardDeviationMircosecondsPerInvocation="100"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="18" invocations="268" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="5456" standardDeviationMircosecondsPerInvocation="353"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="15" invocations="11" avgMicrosecondsPerInvocation="1420" maxMicrosecondsPerInvocation="7214" standardDeviationMircosecondsPerInvocation="2120"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1485536038585" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1485536038586" release="" codeSize="30" numClasses="2"/>
+    <AppVersion sequence="2" timestamp="1485536114514" release="" codeSize="16" numClasses="1"/>
+    <AppVersion sequence="3" timestamp="1485537311818" release="" codeSize="19" numClasses="1"/>
+    <AppVersion sequence="4" timestamp="1485537571086" release="" codeSize="19" numClasses="1"/>
+    <AppVersion sequence="5" timestamp="1485537734871" release="" codeSize="19" numClasses="1"/>
+    <AppVersion sequence="6" timestamp="1485537958860" release="" codeSize="19" numClasses="1"/>
+  </History>
+</BugCollection>

@@ -1,0 +1,83 @@
+public class Deque<Item> implements Iterable<Item> {
+
+	/**
+	 * @param args
+	 * 先完成一般情况，再考虑特殊情况
+	 * 要写test文件
+	 */
+
+	private Node first,last; 
+	
+	public Deque() {
+		first = null;
+		last = first;
+	}
+
+	private class Node {
+		Item item;
+		Node next;
+		Node previous;
+	}
+
+	public boolean isEmpty() {
+		return first == last && first == null;
+	}
+	
+	public void addFirst(Item item) {
+		Node oldfirst = first;
+		first = new Node;
+		first.item = item;
+		first.next = oldfirst; 
+		first.previous = null;
+		oldfirst.previous = first;
+	}
+
+	/**
+	 * 解决last需要额外一个指针，指向倒数第二个node
+	 * 这个思路是错误的，因为多删除几次就没用了
+	 * 根据题目的要求来看，48n，linked list需要 40n， 额外的8个是有意的多给了一个指针的余额 
+	 */
+
+    public void addLast(Item item) {
+		Node oldlast = last;
+		last = new Node;
+		last.item = item;
+		last.next = null;
+		last.previous = oldlast;
+		oldlast.next = last;
+	}
+
+	public Item removeFirst() {
+		Item item = first.item;
+		first = first.next;
+		first.previous = null;
+		return item;
+	}
+
+	public Item removeLast() {
+		Item item = last.item;
+		last = last.previous;
+		last.next = null;
+		return item;
+	}
+	
+	public Iterator<Item> iterator() {
+		return new ListIterator();
+	}
+
+	private class ListIterator implements Iterator<item> {
+		private node current = node;
+		public boolean hasnext() { return current != null; }
+		public void remove()     { throw UnsupportedOperationException;}
+		public Item next() {
+			Item item = current.item;
+			current = current.next();
+			return item;
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	}
+
+}

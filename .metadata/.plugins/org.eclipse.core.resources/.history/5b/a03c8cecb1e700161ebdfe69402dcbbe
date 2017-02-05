@@ -1,0 +1,48 @@
+import static org.junit.Assert.*;
+import org.junit.*;
+
+import org.junit.Test;
+
+public class DequeTest {
+
+	private Deque<String> deque;
+	
+	@Before
+	public void setUp() {
+		deque = new Deque<String>();
+		deque.addFirst("a");
+	}
+	// Test the isEmpty().
+	@Test
+	public void isEmptyTest_1() {
+		deque.removeFirst();
+		assertTrue(deque.isEmpty());
+	}
+	
+	@Test
+	public void isEmptyTest_2() {
+		assertFalse(deque.isEmpty());
+	}
+	
+	@Test
+	public void sizeTest_1() {
+		assertEqual(1,deque.size());
+	}
+	
+	@Test
+	public void sizeTest_2() {
+		deque.removeFirst()
+		assertEqual(0,deque.size());
+	}
+	
+	@Test
+	public void sizeTest_3() {
+		deque.removeFirst()
+		assertEqual(0,deque.size());
+	}
+	
+	
+	
+	
+
+}

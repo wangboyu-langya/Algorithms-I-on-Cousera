@@ -1,0 +1,51 @@
+import Deque.Node;
+
+/**
+ * 
+ */
+
+/**
+ * @author huxianglong
+ *
+ * This package is implemented to realized a queue that  
+ * the item removed is chosen uniformly at random from items in the data structure. 
+ * 
+ * Linked lists cannot be use to implement this method, as it's hard to generate a 
+ * random number and extract it from the list in constant amortized time. So resized 
+ * arrays have to be used.
+ * 
+ */
+public class RandomizedQueue<Item> implements Iterable<Item> {
+	private Item[] s; 
+	private int N;
+	private class Node {
+		Item item;
+		Node next;
+	}
+	
+   public RandomizedQueue()                 // construct an empty randomized queue
+   {  first = null;  }
+   
+   public boolean isEmpty()                 // is the queue empty?
+   {  return first == null;  }
+   
+   public int size()                        // return the number of items on the queue
+   {  return N;  }
+   
+   public void enqueue(Item item)           // add the item
+   {
+		if (item == null) throw new java.lang.NullPointerException();
+		Node oldfirst = first;
+		first = new Node();
+		first.item = item;
+		first.next = oldfirst; 
+		first.previous = null;
+		if (oldfirst != null) oldfirst.previous = first;  
+		else last = first;              
+		N++;
+   }
+   public Item dequeue()                    // remove and return a random item
+   public Item sample()                     // return (but do not remove) a random item
+   public Iterator<Item> iterator()         // return an independent iterator over items in random order
+   public static void main(String[] args)   // unit testing (optional)
+}

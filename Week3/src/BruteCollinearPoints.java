@@ -1,0 +1,119 @@
+import java.util.Arrays;
+
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
+
+import java.util.ArrayList;
+
+public class BruteCollinearPoints {
+	private LineSegment[] s;
+	private int n;
+	/*  At first, I tried to use s to directly add elements, yet it turned out to be implausible.
+	 *  Since the size of the array cannot be speccified, however, it seems that it could be done
+	 *  by the ArrayList type, thanks to the help from the precedents' code.
+	 * 
+	 */
+   	public BruteCollinearPoints(Point[] points) {
+   		int N = points.length;
+		for (int i = 0; i < N; i++) {
+            if (points[i] == null) 
+                throw new NullPointerException();
+            for (int j = i+1; j < N; j++)
+                if (points[i].compareTo(points[j]) == 0) 
+                    throw new IllegalArgumentException();
+        }		
+   		ArrayList<LineSegment> container = new ArrayList<LineSegment>(); //  use this ArrayList to store the information.
+   		for (int i = 0; i < N; i++)
+   			for (int j = i + 1; j < N; j++)
+   				for (int k = j + 1; k < N; k++) {
+   					//  To expedite the loop, if the first three is not collinear, there is no need to continue
+   					if (!isCollinear(points[i], points[j], points[k])) continue;  
+   					for (int l = k + 1; l < N; l++)
+   						//  Check whether the four points are collinear
+   						if (isCollinear(points[i], points[j], points[l])) 
+   							container.add(maxLineSegment(points, i, j, k, l));
+   		
+   				}
+   		n = container.size();
+   		// Only if there are collinear segments
+   		if (n > 0) {
+        	s = new LineSegment[n];
+        	for (int i = 0; i < n; ++i)
+            	s[i] = container.get(i);
+    	}
+      else s = new LineSegment[0];
+    }
+
+	/*
+	 *  This is used to check whether three points are collinear/
+	 */
+	private boolean isCollinear(Point p1, Point p2, Point p3) {
+		double slope_1 = p1.slopeTo(p2);
+		double slope_2 = p1.slopeTo(p3);
+		if (Double.compare(slope_1, slope_2) != 0) return false;
+		else return true;
+	}
+
+	/*
+	 *  This is used to avoid repeated same segment. Pick out the
+	 *  segment only once.
+	 *  However this thought is false, because every combination
+	 *  only showed once, the only thing I need to worry is just
+	 *  maximal segment!
+	 *  It also picks out the maximal segment as well, because the 
+	 *  sort method rearrange the collinear points from the start 
+	 *  point to the end one.
+	 */
+	@SuppressWarnings("unused")
+	private boolean isStartPoint(Point[] p) {
+		Point[] q = new Point[4];
+		q = p.clone();
+		Arrays.sort(p);
+		return p[0] == q[0];
+	}
+
+	private LineSegment maxLineSegment(Point[] p, int i, int j, int k, int l) {
+		Point[] q = { p[i], p[j], p[k], p[l]};
+		Arrays.sort(q);
+		return new LineSegment(q[0], q[3]);
+	}
+	
+    public int numberOfSegments()
+    {  return n;  }
+   
+    public LineSegment[] segments()
+   	{  return s;  }
+
+
+   	//  This is a test client.
+   	public static void main(String[] args) {
+
+    // read the n points from a file
+    	In in = new In(args[0]);
+   		int n = in.readInt();
+    	Point[] points = new Point[n];
+    	for (int i = 0; i < n; i++) {
+        	int x = in.readInt();
+        	int y = in.readInt();
+        	points[i] = new Point(x, y);
+    	}
+
+    	// draw the points
+    	StdDraw.enableDoubleBuffering();
+    	StdDraw.setXscale(0, 32768);
+    	StdDraw.setYscale(0, 32768);
+    	for (Point p : points) {
+        	p.draw();
+    	}
+    	StdDraw.show();
+
+    	// print and draw the line segments
+    	BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+    	for (LineSegment segment : collinear.segments()) {
+        	StdOut.println(segment);
+        	segment.draw();
+    	}
+    	StdDraw.show();
+	}
+}

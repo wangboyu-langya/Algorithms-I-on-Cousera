@@ -1,0 +1,87 @@
+import edu.princeton.cs.algs4.StdRandom;
+import java.util.Iterator;
+
+/**
+ * 
+ */
+
+/**
+ * @author huxianglong
+ *
+ * This package is implemented to realized a queue that  
+ * the item removed is chosen uniformly at random from items in the data structure. 
+ * 
+ * Linked lists cannot be use to implement this method, as it's hard to generate a 
+ * random number and extract it from the list in constant amortized time. So resized 
+ * arrays have to be used.
+ * 
+ * The difficulty is in that eliminate a random element from the queue.
+ * Because the order of this queue is not important, I could just move
+ * the last element to the deleted position. So that the time would be 
+ * constant. There is no need to use multiple arrays to track the index.
+ */
+public class RandomizedQueue<Item> implements Iterable<Item> {
+	private Item[] s;    // the resized array storing the queue
+	private int[] index; // index of the non-null items in the queue.
+	private int N;       // size of the queue.
+	
+   public RandomizedQueue()                 // construct an empty randomized queue
+   {  s = (Item[]) new Object[1];  }
+   
+   public boolean isEmpty()                 // is the queue empty?
+   {  return N == 0;  }
+   
+   public int size()                        // return the number of items on the queue
+   {  return N;  }
+   
+   public void enqueue(Item item)           // add the item
+   {
+		if ( item == null) throw new java.lang.NullPointerException();
+		if ( N > 0 && N == s.length) resize(2*s.length);
+		if ( N > 0 && N == s.length/4) resize(s.length/2);
+		s[N++] = item;
+   }
+   
+   private void resize(int capacity)
+   {
+	   Item[] copy; 
+	   copy = (Item[]) new Object[capacity];
+	   for ( int i = 0; i < N; i++)
+		   if ( s[i] != null) copy[i] = s[i];
+	   s = copy;
+   }
+   
+   public Item dequeue()                    // remove and return a random item
+   {
+	   if (isEmpty()) throw new java.util.NoSuchElementException();
+	   int index = StdRandom.uniform(N);
+	   Item item = s[index];
+	   s[index] = s[N];
+	   s[N--] = null;
+	   return item;
+   }
+   
+   public Item sample()                     // return (but do not remove) a random item
+   {
+	   int index = StdRandom.uniform(N);
+	   return s[index];
+	   
+   }
+   public Iterator<Item> iterator()         // return an independent iterator over items in random order
+   {  return new RandomizedQueueIterator(); }
+   
+   private class RandomizedQueueIterator implements Iterator<Item>{
+	   int[] index = new int[N];
+	   StdRandom.shuffle(index);
+	   int i = N;
+	   public boolean hasNext() {  return i > 0;  }
+	   public void remove()     {  throw new java.lang.UnsupportedOperationException();  }
+	   public Item next() 
+	   {  
+		   if (hasNext()) return s[--i]; 
+		   else {  throw new java.util.NoSuchElementException();  }
+	   }
+   }
+   
+   public static void main(String[] args)   // unit testing (optional)
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Week3/src/Point.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_STDIN_FILE" value="C:\Users\qwe95\workspace\Week3\src\input6.txt"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Point"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Week3"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:Week3}"/>
+</launchConfiguration>

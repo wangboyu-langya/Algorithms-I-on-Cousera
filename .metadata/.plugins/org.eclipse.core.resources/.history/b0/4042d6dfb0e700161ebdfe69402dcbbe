@@ -1,0 +1,22 @@
+import static org.junit.Assert.*;
+import org.junit.*;
+
+import org.junit.Test;
+
+public class DequeTest {
+
+	private Deque<String> deque;
+	
+	@Before
+	public void setUp() {
+		deque = new Deque<String>();
+		deque.addFirst("a");
+	}
+	@Test
+	public void isEmptyTest() {
+		assertTrue(deque.isEmpty());
+	}
+	
+	
+
+}

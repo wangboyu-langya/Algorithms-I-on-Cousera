@@ -1,0 +1,49 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class RandomizedQueueTest {
+
+	private RandomizedQueue<String> randomizedqueue;
+	
+	@Before
+	public void setUp() {
+		randomizedqueue = new RandomizedQueue<String>();
+	}
+	
+
+	// Test the isEmpty().
+	@Test
+	public void isEmptyTest_1() {
+		assertTrue(randomizedqueue.isEmpty());
+	}
+	
+	@Test
+	public void isEmptyTest_2() {
+		randomizedqueue.enqueue("a");
+		assertFalse(randomizedqueue.isEmpty());
+	}
+	
+	
+	
+	//Test size() and enqueue().
+	@Test
+	public void sizeTest_1() {
+		assertEquals(0,randomizedqueue.size());
+	}
+	
+	@Test
+	public void sizeTest_2() {
+		randomizedqueue.enqueue("a");
+		assertEquals(1,randomizedqueue.size());
+	}
+	
+	@Test
+	public void sizeTest_3() {
+		randomizedqueue.enqueue("a");
+		randomizedqueue.enqueue("b");
+		assertEquals(2,randomizedqueue.size());
+	}
+
+}

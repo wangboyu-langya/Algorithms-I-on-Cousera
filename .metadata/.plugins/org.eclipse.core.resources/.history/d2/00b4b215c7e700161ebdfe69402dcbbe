@@ -1,0 +1,33 @@
+import Deque.Node;
+
+/**
+ * 
+ */
+
+/**
+ * @author huxianglong
+ *
+ * This package is implemented to realized a queue that  
+ * the item removed is chosen uniformly at random from items in the data structure. 
+ *
+ */
+public class RandomizedQueue<Item> implements Iterable<Item> {
+	private Node first; 
+	private int N;
+	private class Node {
+		Item item;
+		Node next;
+	}
+	
+   public RandomizedQueue()                 // construct an empty randomized queue
+   {  first = null;  }
+   
+   public boolean isEmpty()                 // is the queue empty?
+   {  return first == null;  }
+   public int size()                        // return the number of items on the queue
+   public void enqueue(Item item)           // add the item
+   public Item dequeue()                    // remove and return a random item
+   public Item sample()                     // return (but do not remove) a random item
+   public Iterator<Item> iterator()         // return an independent iterator over items in random order
+   public static void main(String[] args)   // unit testing (optional)
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1485611345610" analysisTimestamp="1485611344133" release="">
+  <Project projectName="Week">
+    <Jar>C:\Users\qwe95\workspace\Week\bin\PercolationStats.class</Jar>
+    <AuxClasspathEntry>C:\Users\qwe95\workspace\Week\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\qwe95\Google Drive\Senior Spring\Algorithm_Coursera\Week 1\algs4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_121\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\qwe95\workspace\Week\src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="ICAST_IDIV_CAST_TO_DOUBLE" priority="2" rank="17" abbrev="ICAST" category="STYLE" first="1">
+    <Class classname="PercolationStats">
+      <SourceLine classname="PercolationStats" sourcefile="PercolationStats.java" sourcepath="PercolationStats.java"/>
+    </Class>
+    <Method classname="PercolationStats" name="&lt;init&gt;" signature="(II)V" isStatic="false">
+      <SourceLine classname="PercolationStats" start="12" end="22" startBytecode="0" endBytecode="230" sourcefile="PercolationStats.java" sourcepath="PercolationStats.java"/>
+    </Method>
+    <SourceLine classname="PercolationStats" start="20" end="20" startBytecode="73" endBytecode="73" sourcefile="PercolationStats.java" sourcepath="PercolationStats.java"/>
+    <SourceLine classname="PercolationStats" start="20" end="20" startBytecode="73" endBytecode="73" sourcefile="PercolationStats.java" sourcepath="PercolationStats.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sat, 28 Jan 2017 21:46:55 +0800" total_classes="1" referenced_classes="14" total_bugs="1" total_size="24" num_packages="1" java_version="1.8.0_121" vm_version="25.121-b13" cpu_seconds="4.73" clock_seconds="1.53" peak_mbytes="465.19" alloc_mbytes="1024.00" gc_seconds="0.02" priority_2="1">
+    <PackageStats package="" total_bugs="1" total_types="1" total_size="24" priority_2="1">
+      <ClassStats class="PercolationStats" sourceFile="PercolationStats.java" interface="false" size="24" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="518" invocations="2" avgMicrosecondsPerInvocation="259461" maxMicrosecondsPerInvocation="291240" standardDeviationMircosecondsPerInvocation="31782"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="226" invocations="312" avgMicrosecondsPerInvocation="727" maxMicrosecondsPerInvocation="26263" standardDeviationMircosecondsPerInvocation="2311"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="91" invocations="14" avgMicrosecondsPerInvocation="6527" maxMicrosecondsPerInvocation="49457" standardDeviationMircosecondsPerInvocation="12810"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="57" invocations="6" avgMicrosecondsPerInvocation="9582" maxMicrosecondsPerInvocation="56585" standardDeviationMircosecondsPerInvocation="21020"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="54" invocations="312" avgMicrosecondsPerInvocation="175" maxMicrosecondsPerInvocation="11987" standardDeviationMircosecondsPerInvocation="678"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="39" invocations="14" avgMicrosecondsPerInvocation="2824" maxMicrosecondsPerInvocation="30492" standardDeviationMircosecondsPerInvocation="7708"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="36" invocations="73" avgMicrosecondsPerInvocation="498" maxMicrosecondsPerInvocation="5251" standardDeviationMircosecondsPerInvocation="704"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="32" invocations="28" avgMicrosecondsPerInvocation="1154" maxMicrosecondsPerInvocation="20747" standardDeviationMircosecondsPerInvocation="3863"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="31" invocations="14" avgMicrosecondsPerInvocation="2281" maxMicrosecondsPerInvocation="9650" standardDeviationMircosecondsPerInvocation="2300"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1485611345607" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

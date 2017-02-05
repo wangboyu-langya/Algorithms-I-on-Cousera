@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1486093543589" analysisTimestamp="1486093542407" release="">
+  <Project projectName="Week3">
+    <Jar>C:\Users\qwe95\workspace\Week3\bin\Point.class</Jar>
+    <AuxClasspathEntry>C:\Users\qwe95\workspace\Week3\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\qwe95\Google Drive\Senior Spring\Algorithm_Coursera\Week 1\algs4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_121\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\qwe95\workspace\Week3\src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" first="1">
+    <Class classname="Point">
+      <SourceLine classname="Point" sourcefile="Point.java" sourcepath="Point.java"/>
+    </Class>
+    <Method classname="Point" name="compareTo" signature="(LPoint;)I" isStatic="false">
+      <SourceLine classname="Point" start="70" end="70" startBytecode="0" endBytecode="51" sourcefile="Point.java" sourcepath="Point.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="Point">
+      <SourceLine classname="Point" sourcefile="Point.java" sourcepath="Point.java"/>
+    </Class>
+    <Field classname="Point" name="x" signature="I" isStatic="false">
+      <SourceLine classname="Point" sourcefile="Point.java" sourcepath="Point.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" first="1">
+    <Class classname="Point">
+      <SourceLine classname="Point" sourcefile="Point.java" sourcepath="Point.java"/>
+    </Class>
+    <Field classname="Point" name="y" signature="I" isStatic="false">
+      <SourceLine classname="Point" sourcefile="Point.java" sourcepath="Point.java"/>
+    </Field>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Fri, 3 Feb 2017 11:43:56 +0800" total_classes="1" referenced_classes="12" total_bugs="3" total_size="20" num_packages="1" java_version="1.8.0_121" vm_version="25.121-b13" cpu_seconds="3.64" clock_seconds="1.21" peak_mbytes="498.26" alloc_mbytes="1024.00" gc_seconds="0.07" priority_2="3">
+    <PackageStats package="" total_bugs="3" total_types="1" total_size="20" priority_2="3">
+      <ClassStats class="Point" sourceFile="Point.java" interface="false" size="20" bugs="3" priority_2="3"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="420" invocations="2" avgMicrosecondsPerInvocation="210375" maxMicrosecondsPerInvocation="268765" standardDeviationMircosecondsPerInvocation="58390"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="222" invocations="303" avgMicrosecondsPerInvocation="734" maxMicrosecondsPerInvocation="29266" standardDeviationMircosecondsPerInvocation="2377"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="50" invocations="303" avgMicrosecondsPerInvocation="166" maxMicrosecondsPerInvocation="4989" standardDeviationMircosecondsPerInvocation="325"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="42" invocations="9" avgMicrosecondsPerInvocation="4743" maxMicrosecondsPerInvocation="42072" standardDeviationMircosecondsPerInvocation="13197"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="39" invocations="12" avgMicrosecondsPerInvocation="3301" maxMicrosecondsPerInvocation="14256" standardDeviationMircosecondsPerInvocation="4576"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="35" invocations="66" avgMicrosecondsPerInvocation="539" maxMicrosecondsPerInvocation="5402" standardDeviationMircosecondsPerInvocation="749"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="29" invocations="270" avgMicrosecondsPerInvocation="110" maxMicrosecondsPerInvocation="6924" standardDeviationMircosecondsPerInvocation="440"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="26" invocations="25" avgMicrosecondsPerInvocation="1046" maxMicrosecondsPerInvocation="16395" standardDeviationMircosecondsPerInvocation="3214"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1486093543586" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

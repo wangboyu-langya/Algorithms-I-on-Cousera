@@ -1,0 +1,18 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class DequeTest {
+
+	private Deque<String> deque;
+	
+	@Before
+	public void setUp() {
+		deque = new Deque<String>();
+	}
+	@Test
+	public void isEmptyTest() {
+		assetTrue(deque.isEmpty());
+	}
+
+}

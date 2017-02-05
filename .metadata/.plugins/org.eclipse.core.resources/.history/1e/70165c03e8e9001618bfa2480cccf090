@@ -1,0 +1,99 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class FastCollinearPoints {
+	/*  This is intended to use quick sort to solve the problem of collinear points.
+	 *	For every point in the array, sort it using Arrays.sort() to select the collinear points.
+	 *  Once finished, remove it from the arrays to fasten the process of next point.
+	 */
+	private LineSegment[] s;  //  array of segments.
+	private int n;            //  the number of segments.
+
+	public FastCollinearPoints(Point[] points) {
+		int N = points.length; 
+		Point[] p = points.clone();  //  a copy of the parameter array, inherited from the Object class.
+		ArrayList<LineSegment> container = new ArrayList<LineSegment>(); //  use this ArrayList to store the information.
+		for (int i = 0; i < N; i++){
+			Point point = points[i];
+			Arrays.sort(p, point.slopeOrder());
+			assert p[0] == point;  //  To check the validity of slopeOrder.
+   		/*  The next problem is to find the collinear points, it is a little complicated.
+   		 *  The general idea is to utilize the fact that the array is sorted.
+   		 *  The difficulty is in that the problem of segment, it's really hard to find the longest segment.
+   		 *  Plus, it's also hard to avoid subsegments, but it can be fixed in the segments() methods, 
+          *
+          *  After one day, it's quite simple to solve the problem of maximal segment and 
+   		 */
+   		for (int j = 1, k = j + 2; j < N; ) {
+   			while (isCollinear(point, p[j], p[k])) {
+   				k++;
+   			}
+   			if (k - j > 2) {
+               LineSegment item = maxLineSegment(points, j, k);
+               if (item != null) container.add( new item);
+            }
+			}
+		}
+      n = container.size();
+      // Only if there are collinear segments
+      if (n > 0) {
+      s = new LineSegment[n];
+      for (int i = 0; i < n; ++i)
+            s[i] = container.get(i);
+      }
+   }
+   /*
+    *  This returns a LineSegment if the given point is the start point. This is designed
+    *  to avoid the problem of repeated LineSegments, the problem of subsegments is automatically
+    *  solved.
+    *  
+    */
+   private LineSegment maxLineSegment(Point[] p, int i, int j) {
+      int size = j - i + 2;
+      Point[] q = new Point[size];
+      q[0] = p[0];
+      for (int k = 1; k < size; k++)
+         q[k] = p[k];
+      Arrays.sort(q);
+      if (q[0] = p[0]) return new LineSegment(q[0], q[size-1]);
+      else return null;
+   }   
+
+   public int numberOfSegments()
+   {  return n;  }
+   
+   public LineSegment[] segments()
+   {  return s;  }
+
+
+//  This is a test client.
+      public static void main(String[] args) {
+
+    // read the n points from a file
+      In in = new In(args[0]);
+         int n = in.readInt();
+      Point[] points = new Point[n];
+      for (int i = 0; i < n; i++) {
+         int x = in.readInt();
+         int y = in.readInt();
+         points[i] = new Point(x, y);
+      }
+
+      // draw the points
+      StdDraw.enableDoubleBuffering();
+      StdDraw.setXscale(0, 32768);
+      StdDraw.setYscale(0, 32768);
+      for (Point p : points) {
+         p.draw();
+      }
+      StdDraw.show();
+
+      // print and draw the line segments
+      BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+      for (LineSegment segment : collinear.segments()) {
+         StdOut.println(segment);
+         segment.draw();
+      }
+      StdDraw.show();
+   }
+}

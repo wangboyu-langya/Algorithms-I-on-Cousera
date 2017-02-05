@@ -1,0 +1,30 @@
+import edu.princeton.cs.algs4.StdIn;
+
+/**
+ * 
+ */
+
+/**
+ * @author qwe95
+ *
+ */
+public class Permutation {
+
+	/**
+	 * @param args
+	 */
+	@SuppressWarnings("unused")
+	private RandomizedQueue<String> randomizedqueue;
+	public Permutation() {
+		randomizedqueue = new RandomizedQueue<String>();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		while (!StdIn.isEmpty()) {
+			String item = StdIn.readString();
+			randomizedqueue.enqueue(item);
+        }
+		
+	}
+
+}

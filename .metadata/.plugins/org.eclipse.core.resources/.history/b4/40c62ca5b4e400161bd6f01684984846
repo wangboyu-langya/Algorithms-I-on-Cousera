@@ -1,0 +1,37 @@
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdStats;
+import Percolation.java;
+
+public class PercolationStats {
+	// perform trials independent experiments on an n-by-n grid
+	private double[] data;
+	private int trials;
+    public PercolationStats(int n, int trials)    
+    {
+    	data = new double[trials];
+    	this.trials = trials
+    	for (i = 0; i <= trials-1; i++)
+    	{
+    		Percolation grid = new Percolation(n);
+    		while (!grid.percolates) grid.open(StdRandom.uniform(n^2 - 1));
+    		data[i] = grid.numberOfOpenSites/n^2;
+    	}
+    }
+    // sample mean of percolation threshold
+    public double mean()                          
+    { return StdStats.mean(data);}
+    // sample standard deviation of percolation threshold
+    public double stddev()                        
+    { return StdStats.stdvar(data);}
+    // low  endpoint of 95% confidence interval
+    public double confidenceLo()                  
+    { return mean() - 1.96*stddev()/Math.sqrt(trials);}
+    // high endpoint of 95% confidence interval
+    public double confidenceHi()                  
+    { return mean() + 1.96*stddev()/Math.sqrt(trials);}
+    // test client (described below)
+    public static void main(String[] args) 
+    {
+    	
+    }       
+}

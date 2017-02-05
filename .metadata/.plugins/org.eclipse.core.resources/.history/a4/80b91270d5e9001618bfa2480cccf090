@@ -1,0 +1,38 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+
+public class BruteCollinearPoints {
+	private LineSegment[] s;
+	int n;
+	/*  At first, I tried to use s to directly add elements, yet it turned out to be implausible.
+	 *  Since the size of the array cannot be speccified, however, it seems that it could be done
+	 *  by the ArrayList type, thanks to the help from the precedents' code.
+	 * 
+	 */
+   	public BruteCollinearPoints(Point[] points) {
+   		ArrayList<LineSegment> al = new ArrayList<LineSegment>(); //  use this ArrayList to store the information.
+   		int N = points.length;
+   		for (int i = 0; i < N; i++)
+   			for (int j = i + 1; j < N; j++)
+   				for (int k = j + 1; k < N; k++)
+   					for (int l = k + 1; l < N; l++)
+   						if (isCollinear(points[i], points[j], points[k], points[l])) 
+   							s[n++] = new LineSegment(points[i], points[j]);
+   }
+
+	private boolean isCollinear(Point p1, Point p2, Point p3, Point p4) {
+		double slope_1 = p1.slopeTo(p2);
+		double slope_2 = p1.slopeTo(p3);
+		double slope_3 = p1.slopeTo(p4);
+		if (Double.compare(slope_1, slope_2) != 0) return false;
+		else if (Double.compare(slope_1, slope_3) != 0) return false;
+		else return true;
+	}
+	
+   public           int numberOfSegments() {
+   	return n;
+   }
+   public LineSegment[] segments() {
+   	return s; 
+   }
+}

@@ -1,5 +1,7 @@
 import java.util.Iterator;
 
+import edu.princeton.cs.algs4.StdOut;
+
 /**
  * 
  */
@@ -14,6 +16,7 @@ public class Board {
 	private int N;               //  the dimension of the board.
 	private int hamming;         //  the hamming distance.
 	private int manhattan;       //  the manhattan distance.
+	private Stack<Board> neighbors;
 	/*  construct a board from an n-by-n array of blocks
 	 *  (where blocks[i][j] = block in row i, column j)
 	 */
@@ -96,7 +99,7 @@ public class Board {
 
 
 	//  exchange the two given integers.
-	private void exch(int a, int b) {
+	public void exch(int a, int b) {
 		int med;
 		med = a;
 		a = b;
@@ -121,23 +124,41 @@ public class Board {
 	 *  problem at the moment.
 	 *  
 	 *  From the information provided in the checklist, I think it just need me to return an 
-	 *  iterable data structure. 
+	 *  iterable data structure. The problem of previous board is not of our concern at 
+	 *　the moment.
 	 *
 	 * 
 	 */
 	public Iterable<Board> neighbors() {
-		public Iterator<Board> iterator() { return new BoardIterator(); }
-		private BoardIterator implements Iterator<Board> {
-			private Board current = new Board(board);
-			public boolean hasNext() { return !current.isGoal(); }
-			public void remove() { /* not supported */ }
-			public Board next()
-			{
-				Item item = current.item;
-				current = current.next;
-				return item;
-			}
+		neighbors = new Stack<Board>();
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N; j++)
+				if (board[i][j] == 0) break;
+		//  the right neighbor
+		if (j + 1 <= N - 1) {
+			exch(board[i][j], board[i][j + 1]);
+			neighbors.push(new Board(board)); 
+			exch(board[i][j], board[i][j + 1]);
 		}
+		//  the  left neighbor
+		if (j - 1 >= 0) {
+			exch(board[i][j], board[i][j - 1]);
+			neighbors.push(new Board(board)); 
+			exch(board[i][j], board[i][j - 1]);
+		}
+		//  the upper neighbor
+		if (i - 1 >= 0) {
+			exch(board[i][j], board[i - 1][j]);
+			neighbors.push(new Board(board)); 
+			exch(board[i][j], board[i - 1][j]);
+		}
+		//  the lower neighbor
+		if (i + 1 >= 0) {
+			exch(board[i][j], board[i + 1][j]);
+			neighbors.push(new Board(board)); 
+			exch(board[i][j], board[i + 1][j]);
+		}
+
 	} 
 
 
@@ -158,5 +179,11 @@ public class Board {
 	}            
 
 	// unit tests (not graded)
-	public static void main(String[] args) {}
+	public static void main(String[] args) {
+		int a = 3;
+		int b = 4;
+		exch(a, b);
+		StdOut.println(a);
+		StdOut.println(b);
+	}
 }
